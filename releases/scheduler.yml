@@ -1,0 +1,32 @@
+author: jrydberg
+kind: gilliam#release
+message: null
+name: '2'
+services:
+  _bootstrap:
+    command: bin/bootstrap
+    env: {}
+    image: gilliam/scheduler-_bootstrap:820046987083cfe110d94aaa5c8607d1
+    options: {}
+    ports: []
+  _store:
+    command: null
+    env: {}
+    image: gilliam/etcd
+    options: {}
+    ports:
+    - 4001
+    - 7001
+  _worker:
+    command: bin/worker
+    env: {}
+    image: gilliam/scheduler-_worker:820046987083cfe110d94aaa5c8607d1
+    options: {}
+    ports: []
+  api:
+    command: bin/api
+    env: {}
+    image: gilliam/scheduler-api:820046987083cfe110d94aaa5c8607d1
+    options: {}
+    ports:
+    - 80
