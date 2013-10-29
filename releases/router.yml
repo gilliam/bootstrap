@@ -1,7 +1,7 @@
 author: jrydberg
 kind: gilliam#release
 message: null
-name: '3'
+name: '2'
 services:
   _store:
     command: null
@@ -14,14 +14,14 @@ services:
   api:
     command: bin/api
     env: {}
-    image: gilliam/router-api:b269ee64167d42aa21144f341f05ab89
+    image: gilliam/router-api:03a3021e3c89f7788bedbb6be9b1b576
     options: {}
     ports:
     - 80
   router:
     command: bin/router
     env: {}
-    image: gilliam/router-router:b269ee64167d42aa21144f341f05ab89
+    image: gilliam/router-router:03a3021e3c89f7788bedbb6be9b1b576
     options: {}
     ports:
     - 80

@@ -17,9 +17,10 @@
 # cumbersome and somewhat complex.  That's why we do it in a special
 # image.
 
+set -x
+
 # We pass the release configuration in an environment variable.  The
 # scheduler bootstrap script will pick it up.
-#export RELEASE=$(cat releases/scheduler.py)
 
 gilliam-cli -f scheduler run \
     --env GILLIAM_SERVICE_REGISTRY \
@@ -27,10 +28,13 @@ gilliam-cli -f scheduler run \
     --release releases/scheduler.yml --service _bootstrap
 
 # Create router formation and scale up store and API.
-#gilliam-cli -f router launch releases/router.yml
-#gilliam-cli -f router scale 1 _store=1 api=1
+gilliam-cli -f router launch releases/router.yml
+gilliam-cli -f router scale 1 _store=1
+gilliam-cli -f router scale 1 api=1
 
 # For each identified router, spawn a router instance.
-#for router in "$ROUTERS"; do
-#  gilliam-cli -f router spawn --assign-to $router --port 8080:80 router
-#done
+if [ -n "$ROUTERS" ]; then
+  for router in $ROUTERS; do
+    gilliam-cli -f router spawn --assign-to $router --port 8080:80 router
+  done
+fi
