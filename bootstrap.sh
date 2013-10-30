@@ -35,6 +35,6 @@ gilliam-cli -f router scale 1 api=1
 # For each identified router, spawn a router instance.
 if [ -n "$ROUTERS" ]; then
   for router in $ROUTERS; do
-    gilliam-cli -f router spawn --assign-to $router --port 8080:80 router
+    gilliam-cli -f router spawn --assigned-to $router --port 8080:80 router
   done
 fi
