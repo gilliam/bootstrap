@@ -6,27 +6,23 @@ services:
   _bootstrap:
     command: bin/bootstrap
     env: {}
-    image: gilliam/scheduler-_bootstrap:5bb1668d1d1c81ca825c69518e6da475
-    options: {}
+    image: gilliam/scheduler:e4a94d4d
     ports: []
   _store:
     command: null
     env: {}
     image: gilliam/etcd
-    options: {}
     ports:
     - 4001
     - 7001
   _worker:
     command: bin/worker
     env: {}
-    image: gilliam/scheduler-_worker:5bb1668d1d1c81ca825c69518e6da475
-    options: {}
+    image: gilliam/scheduler:e4a94d4d
     ports: []
   api:
     command: bin/api
     env: {}
-    image: gilliam/scheduler-api:5bb1668d1d1c81ca825c69518e6da475
-    options: {}
+    image: gilliam/scheduler:e4a94d4d
     ports:
     - 80
