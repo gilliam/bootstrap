@@ -7,21 +7,18 @@ services:
     command: null
     env: {}
     image: gilliam/etcd
-    options: {}
     ports:
     - 4001
     - 7001
   api:
     command: bin/api
     env: {}
-    image: gilliam/router-api:03a3021e3c89f7788bedbb6be9b1b576
-    options: {}
+    image: gilliam/router:8efbfc70
     ports:
     - 80
   router:
     command: bin/router
     env: {}
-    image: gilliam/router-router:03a3021e3c89f7788bedbb6be9b1b576
-    options: {}
+    image: gilliam/router:8efbfc70
     ports:
     - 80
