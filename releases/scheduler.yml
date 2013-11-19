@@ -6,7 +6,7 @@ services:
   _bootstrap:
     command: bin/bootstrap
     env: {}
-    image: gilliam/scheduler:b3261ea1
+    image: gilliam/scheduler:f3f3bfb5
     ports: []
   _cache:
     command: null
@@ -24,11 +24,11 @@ services:
   _worker:
     command: bin/worker
     env: {}
-    image: gilliam/scheduler:b3261ea1
+    image: gilliam/scheduler:f3f3bfb5
     ports: []
   api:
     command: bin/api
     env: {}
-    image: gilliam/scheduler:b3261ea1
+    image: gilliam/scheduler:f3f3bfb5
     ports:
     - 80
